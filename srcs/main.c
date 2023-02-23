@@ -31,10 +31,10 @@ static int    ft_print_articles(t_articles *articles)
 {
 	if (ft_strncmp(articles->description, "ull,", 4))
 	{
-		printf("\033[38;5;79;155;148m> %s\e[0m", articles->title);
-		printf(" (%s)\e[0m\n", articles->date);
-		printf("\033[38;5;15m%s\n", articles->description);
-		printf("[%s]\n\n\e[0m", articles->url);
+		printf("%s> %s%s", T_COLOR, articles->title, DEFAULT);
+		printf(" (%s)%s\n", articles->date, DEFAULT);
+		printf("%s%s\n", D_COLOR, articles->description);
+		printf("[%s]\n\n\e%s", articles->url, DEFAULT);
 		ft_free_article(articles);
 		return (0);
 	}
@@ -168,7 +168,7 @@ int	main(int argc, char **argv)
 		while (len && argv[i][len] != '/')
 			len--;
 		name = ft_replace_name(argv[i] + len + 1);
-		printf("\033[38;5;202m*** %s ***\033[0m\n\n", name);
+		printf("%s*** %s ***%s\n\n", S_COLOR, name, DEFAULT);
 		free(name);
 		tmp = ft_strnstr(line, "articles", ft_strlen(line));
 		ft_get_all_articles(tmp + 11);

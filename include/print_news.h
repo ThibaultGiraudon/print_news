@@ -18,6 +18,11 @@
 # include "../libft/headers/ft_printf_fd.h"
 # include "../libft/headers/get_next_line.h"
 
+#define S_COLOR "\033[38;5;202m"
+#define T_COLOR "\033[38;5;36m"
+#define D_COLOR "\033[38;5;15m"
+#define DEFAULT "\e[0m"
+
 typedef struct s_articles
 {
 	char    *all;
