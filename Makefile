@@ -3,20 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+         #
+#    By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 11:12:25 by tgiraudo          #+#    #+#              #
-#    Updated: 2023/02/15 16:40:14 by tgiraudo         ###   ########.fr        #
+#    UppublishedAtd: 2023/02/22 20:59:47 by thibaultgir      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # VARIABLE
 
-NAME			=	hello_world
+NAME			=	print_news
 
 LIST_SRCS		=	main.c				\
+					ft_check_country.c	\
 
-HEADERS			=	hello_world.h
+HEADERS			=	print_news.h
 
 # DIRECTORY
 DIR_OBJS		=	.objs/
@@ -58,13 +59,13 @@ DEFAULT 		=	\033[0m
 ${DIR_OBJS}%.o 	:	%.c Makefile ${INCLUDES} 
 				@mkdir -p $(shell dirname $@)
 				@${PRINT} "${YELLOW}${SUPPR}Creating ${NAME}'s objects : $@"
-				@${CC} ${FLAGS} -I ${DIR_INCS} -c $< -o $@ 
+				@${CC} -g3 ${FLAGS} -I ${DIR_INCS} -c $< -o $@ 
 				@${PRINT} "${GREEN}${SUPPR}Creating ${NAME}'s objects : DONE"
 
 ${NAME}			:	ascii lib ${OBJS}
 				@${PRINT} "${GREEN}${SUPPR}Creating ${NAME}'s objects : DONE"
 				@${PRINT} "\n${YELLOW}Compiling ${NAME}..."
-				@${CC} ${OBJS} ${LIBFT} -o ${NAME}
+				@${CC} -g3 ${OBJS} ${LIBFT} -o ${NAME}
 				@${PRINT} "\r${GREEN}Compiling ${NAME} : DONE${DEFAULT}\n\n"
 
 all				:	${NAME}
@@ -97,13 +98,11 @@ ${DIR_OBJS}		:
 				mkdir -p ${DIR_OBJS}
 				
 define ASCII
-  _          _ _                            _     _ _ 
- | |        | | |                          | |   | | |
- | |__   ___| | | ___   __      _____  _ __| | __| | |
- | '_ \ / _ \ | |/ _ \  \ \ /\ / / _ \| '__| |/ _` | |
- | | | |  __/ | | (_) |  \ V  V / (_) | |  | | (_| |_|
- |_| |_|\___|_|_|\___/    \_/\_/ \___/|_|  |_|\__,_(_)
-                                                      
+ ____  ____  ____  _  _  ____     _  _  ____  _    _  ___ 
+(  _ \(  _ \(_  _)( \( )(_  _)___( \( )( ___)( \/\/ )/ __)
+ )___/ )   / _)(_  )  (   )( (___))  (  )__)  )    ( \__ \
+(__)  (_)\_)(____)(_)\_) (__)    (_)\_)(____)(__/\__)(___/
+    
 
 endef
 export ASCII

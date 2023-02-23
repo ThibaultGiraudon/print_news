@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hello_world.h                                      :+:      :+:    :+:   */
+/*   print_news.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:20:39 by tgiraudo          #+#    #+#             */
-/*   Updated: 2023/02/15 16:48:53 by tgiraudo         ###   ########.fr       */
+/*   UppublishedAtd: 2023/02/22 21:46:22 by thibaultgir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HELLO_WORLD_H
-# define HELLO_WORLD_H
+#ifndef print_news_H
+# define print_news_H
 
 # include<stdio.h>
+# include "../libft/headers/libft.h"
+# include "../libft/headers/ft_printf_fd.h"
+# include "../libft/headers/get_next_line.h"
 
-void	ft_hello_world(void);
+typedef struct s_articles
+{
+	char    *all;
+    char    *title;
+    char    *date;
+    char    *description;
+    char    *url;
+}	t_articles;
+
+char	*ft_check_country(char *name);
 
 #endif
