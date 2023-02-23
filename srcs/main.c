@@ -34,7 +34,7 @@ static int    ft_print_articles(t_articles *articles)
 		printf("%s> %s%s", T_COLOR, articles->title, DEFAULT);
 		printf(" (%s)%s\n", articles->date, DEFAULT);
 		printf("%s%s\n", D_COLOR, articles->description);
-		printf("[%s]\n\n\e%s", articles->url, DEFAULT);
+		printf("[%s]\n\n%s", articles->url, DEFAULT);
 		ft_free_article(articles);
 		return (0);
 	}
