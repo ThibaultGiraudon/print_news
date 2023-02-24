@@ -19,11 +19,8 @@ cp -r print_news "$HOME"
 
 cd "$HOME" || exit
 rm -rf temp_____
-if grep "zsh" "$SHELL"; then
-	RC_FILE="$HOME/.zshrc"
-else 
-	RC_FILE="$HOME/.bashrc"
-fi
+
+RC_FILE="$HOME/.zshrc"
 
 echo "try to add alias in file: $RC_FILE"
 
