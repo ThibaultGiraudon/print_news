@@ -66,7 +66,7 @@ And add the new var to this command :
 ./print_news/print_news ~/print_news/artciles/$SUBJECT[1..n] ~/print_news/artciles/$COUNTRY >> ~/todays_news
 ```
 
-You can also modifie the colors in ~/print_news/include/print_news.h.
+You can modifie the colors and the number of articles in ~/print_news/include/print_news.h.
 
 A bash script is present to show you all the colors you terminal is addling. Type this command to use it:
 ```
