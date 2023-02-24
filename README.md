@@ -19,6 +19,9 @@ These informations are shown in a window which had to be close tapping 'q' key.
 This project use an API called NewsAPI, you need to generate a key on their [website](https://newsapi.org), it's fully free you just had to create an account.
 
 ## INSTALATION
+```
+bash -c "$(curl -fsSL https://raw.github.com/Thib1708/print_news/master/install.sh)"
+```
 Type the folowings commands lines in your ```$HOME``` directory:
 
 ```
