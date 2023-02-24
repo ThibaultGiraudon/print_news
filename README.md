@@ -56,7 +56,7 @@ You can modifie the export's lines in .zshrc :
 -SUBJECT : to get articles about a subject you like
 
 -COUNTRY : to get the top headline of your country
-(Here are all the availble country)
+([Here](assets/country.txt) are all the availble country)
 
 You can display articales about more than one subject by adding other export SUBJECT[1..n], add this command:
 ```
