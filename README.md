@@ -70,7 +70,7 @@ You can modifie the colors and the number of articles in ~/print_news/include/pr
 
 A bash script is present to show you all the colors you terminal is addling. Type this command to use it:
 ```
-sh script.sh |& less
+sh  bin/script.sh |& less
 ```
 To get the same terminal's color as i do go into your terminal settings then profiles/color Color Presets at the bottom right and select Solarized dark
 
