@@ -6,7 +6,7 @@
 /*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:43:17 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/02/23 15:44:15 by thibaultgir      ###   ########.fr       */
+/*   Updated: 2023/02/24 13:13:19 by thibaultgir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_check_country(char *name)
 	if(!ft_strncmp(name, "bg", ft_strlen(name)))
 		return (ft_strdup("BULGARIA"));
 	if(!ft_strncmp(name, "br", ft_strlen(name)))
-		return (ft_strdup("FRANCE"));
+		return (ft_strdup("BRAZIL"));
 	if(!ft_strncmp(name, "ca", ft_strlen(name)))
 		return (ft_strdup("CANADA"));
 	if(!ft_strncmp(name, "ch", ft_strlen(name)))
@@ -95,7 +95,7 @@ char	*ft_check_country(char *name)
 	if(!ft_strncmp(name, "ro", ft_strlen(name)))
 		return (ft_strdup("ROMANIA"));
 	if(!ft_strncmp(name, "rs", ft_strlen(name)))
-		return (ft_strdup("FRANCE"));
+		return (ft_strdup("SERBIA"));
 	if(!ft_strncmp(name, "ru", ft_strlen(name)))
 		return (ft_strdup("RUSSIAN-FEDERATION"));
 	if(!ft_strncmp(name, "sa", ft_strlen(name)))
