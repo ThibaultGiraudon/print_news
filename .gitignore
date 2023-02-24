@@ -1,3 +1,4 @@
 .objs
 a.out
 print_news
+libft.a
