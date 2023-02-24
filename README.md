@@ -3,6 +3,7 @@
 1. [Purpose](#purpose)
 1. [Requirement](#requirement)
 2. [Instalation](#instalation)
+3. [Uninstall](#uninstall)
 3. [Customization](#customization)
 4. [Documentation](#documentation)
 
@@ -26,6 +27,24 @@ Type the folowings commands lines in your ```$HOME``` directory:
 bash -c "$(curl -fsSL https://raw.github.com/Thib1708/print_news/master/bin/install.sh)"
 ```
 Then add your api key in ```~/zshrc``` between the quotes of export API_KEY="".
+
+## UNINSTALL
+
+Delete the ```print_news``` directory from your ```$HOME``` directory.
+
+Remove the command added to your ```~/.zshrc```:
+```
+export SUBJECT="Apple"
+export COUNTRY="fr"
+export API_KEY="8290029380e4428bb679cc65052bcfc4"
+export CITY="Lyon"
+curl -s fr.wttr.in/$CITY\?tpq > ~/todays_news
+curl https://newsapi.org/v2/everything -G -d q=$SUBJECT -d sortBy=popularity -d apiKey=$API_KEY> ~/print_news/articles/$SUBJECT
+curl https://newsapi.org/v2/top-headlines -G -d country=$COUNTRY -d sortBy=popularity -d apiKey=$API_KEY > ~/print_news/articles/$COUNTRY
+cd ~
+./print_news/print_news ./print_news/articles/$SUBJECT ./print_news/articles/$COUNTRY >> ~/todays_news
+cat ~/todays_news |& less
+```
 
 ## CUSTOMIZATION
 
