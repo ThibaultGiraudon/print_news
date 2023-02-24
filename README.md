@@ -10,8 +10,13 @@
 This project is about displaying the weather and some news about subject you likes and your country each time you launch a terminal.
 These informations are shown in a window which had to be close tapping 'q' key.
 
+#### Example execution
+
+![Example weather](assets/weather.png)
+![Example news](assets/news.png)
+
 ## REQUIREMENT
-This project use an API called NewsAPI, you need to generate a key on their website, it's fully free you just had to create an account.
+This project use an API called NewsAPI, you need to generate a key on their [website](https://newsapi.org), it's fully free you just had to create an account.
 
 ## INSTALATION
 Type the folowings commands lines in your ```$HOME``` directory:
