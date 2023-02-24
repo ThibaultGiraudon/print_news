@@ -6,7 +6,7 @@
 /*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:20:39 by tgiraudo          #+#    #+#             */
-/*   Updated: 2023/02/24 18:46:29 by thibaultgir      ###   ########.fr       */
+/*   Updated: 2023/02/24 19:29:25 by thibaultgir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include "../libft/headers/ft_printf_fd.h"
 # include "../libft/headers/get_next_line.h"
 
-# define S_COLOR "\033[38;5;202m"
-# define T_COLOR "\033[38;5;36m"
-# define D_COLOR "\033[38;5;15m"
-# define DEFAULT "\e[0m"
+# define S_COLOR "\033[38;5;202m" //Subject color
+# define T_COLOR "\033[38;5;36m" //Title color
+# define D_COLOR "\033[38;5;15m" // Description color
+# define DEFAULT "\e[0m" // Default color 
 
-# define NB_ARTICLES 4
+# define NB_ARTICLES 4 // number of article display
 
 typedef struct s_articles
 {
