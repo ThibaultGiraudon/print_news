@@ -6,7 +6,7 @@
 /*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:07:55 by tgiraudo          #+#    #+#             */
-/*   UppublishedAtd: 2023/02/22 21:46:22 by thibaultgir      ###   ########.fr       */
+/*   Updated: 2023/02/24 18:46:23 by thibaultgir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_free_article(t_articles *articles)
 	free(articles);
 }
 
-static int    ft_print_articles(t_articles *articles)
+static int	ft_print_articles(t_articles *articles)
 {
 	if (ft_strncmp(articles->description, "ull,", 4))
 	{
@@ -39,13 +39,13 @@ static int    ft_print_articles(t_articles *articles)
 		return (0);
 	}
 	ft_free_article(articles);
-	return (-1);
+	return (1);
 }
 
 static char	*ft_add(char *str, char	*article)
 {
 	char	*new_str;
-	int i;
+	int		i;
 
 	new_str = ft_strnstr(article, str, ft_strlen(article));
 	new_str += ft_strlen(str) + 3;
@@ -67,7 +67,8 @@ static void	ft_split_article(t_articles *articles)
 	articles->date = ft_add("publishedAt", articles->all);
 	articles->description = ft_add("description", articles->all);
 	articles->url = ft_add("url", articles->all);
-	if (!articles->title || !articles->date || !articles->description || !articles->url)
+	if (!articles->title || !articles->date || !articles->description \
+		|| !articles->url)
 	{
 		ft_free_article(articles);
 		exit (EXIT_FAILURE);
@@ -88,28 +89,24 @@ static t_articles	*ft_add_article(int start, int i, char *line)
 	return (article);
 }
 
-static void	ft_get_all_articles(char *line)
+static void	ft_get_all_articles(char *line, int count)
 {
-	t_articles *articles;
-	int	i;
-	int	delimiter;
-	int start;
-	int nb_articles;
+	t_articles	*articles;
+	int			i;
+	int			delimiter;
+	int			start;
 
 	i = -1;
 	delimiter = 0;
-	nb_articles = 0;
-	while (line[++i] && nb_articles++ <= 6)
+	while (line[++i] && count < NB_ARTICLES)
 	{
 		if (line[i] == '{')
 		{
 			start = i + 1;
-			while(line[++i])
+			while (line[++i])
 			{
 				if (line[i] == '{')
-				{
 					delimiter = 1;
-				}
 				if (line[i] == '}' && delimiter == 0)
 					break ;
 				if (line[i] == '}' && delimiter == 1)
@@ -118,17 +115,16 @@ static void	ft_get_all_articles(char *line)
 			articles = ft_add_article(start, i, line);
 			if (!articles)
 				return (ft_free_article(articles));
-			nb_articles += ft_print_articles(articles);
+			if (!ft_print_articles(articles))
+				count++;
 		}
 	}
 }
 
-
-
 char	*ft_replace_name(char *name)
 {
-	char *new_name;
-	int i;
+	char	*new_name;
+	int		i;
 
 	i = -1;
 	new_name = ft_check_country(name);
@@ -146,12 +142,12 @@ char	*ft_replace_name(char *name)
 
 int	main(int argc, char **argv)
 {
-	char *line;
-	int len;
-	int fd;
-	char *tmp;
+	char	*line;
+	int		len;
+	int		fd;
+	char	*tmp;
 	char	*name;
-	int i;
+	int		i;
 	
 	(void)argc;
 	i = 0;
@@ -161,19 +157,19 @@ int	main(int argc, char **argv)
 		fd = open(argv[i], O_RDONLY);
 		if (fd == -1)
 			return (perror(argv[i]), 0);
-		get_next_line(fd, &line);
-		if (ft_strnstr(line, "status: \"error\"", ft_strlen(line)))
-			return (printf("%s\n\n\n", line), 0);
+		get_next_line(fd, &tmp);
+		if (ft_strnstr(tmp, "status: \"error\"", ft_strlen(tmp)))
+			return (printf("%s\n\n\n", tmp), 0);
 		len = ft_strlen(argv[i]);
 		while (len && argv[i][len] != '/')
 			len--;
 		name = ft_replace_name(argv[i] + len + 1);
 		printf("%s*** %s ***%s\n\n", S_COLOR, name, DEFAULT);
 		free(name);
-		tmp = ft_strnstr(line, "articles", ft_strlen(line));
-		ft_get_all_articles(tmp + 11);
+		line = ft_strnstr(tmp, "articles", ft_strlen(tmp));
+		ft_get_all_articles(line + 11, 0);
 		close(fd);
-		free(line);
+		free(tmp);
 	}
 	return (0);
 }
