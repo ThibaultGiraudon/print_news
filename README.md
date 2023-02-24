@@ -23,7 +23,7 @@ This project use an API called NewsAPI, you need to generate a key on their [web
 Type the folowings commands lines in your ```$HOME``` directory:
 
 ```
-bash -c "$(curl -fsSL https://raw.github.com/Thib1708/print_news/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.github.com/Thib1708/print_news/master/bin/install.sh)"
 ```
 Then add your api key in ```~/zshrc``` between the quotes of export API_KEY="".
 
