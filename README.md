@@ -8,10 +8,9 @@
 
 ## PURPOSE:
 
-This project is about displaying the weather and some news about subject you likes and your country each time you launch a terminal.
-These informations are shown in a window which had to be close tapping 'q' key.
+This project display the weather and some news about subjects you like and the top headlines of your country each time you launch a terminal.
 
-#### Example execution
+### Example execution
 
 ![Example weather](assets/weather.png)
 ![Example news](assets/news.png)
@@ -37,14 +36,11 @@ You can modifie the export's lines in .zshrc :
 -SUBJECT : to get articles about a subject you like
 
 -COUNTRY : to get the top headline of your country
-([Here](assets/country.txt) are all the availble country)
+([Here](assets/country.txt) are all the available country)
 
 You can display articales about more than one subject by adding other export SUBJECT[1..n], add this command:
 ```
-curl https://newsapi.org/v2/everything -G \
-    -d q=$SUBJECT[1..n] \
-    -d sortBy=popularity \
-    -d apiKey=$API_KEY> ~/$SUBJECT[1..n]
+curl https://newsapi.org/v2/everything -G -d q=$SUBJECT[1..n] -d sortBy=popularity -d apiKey=$API_KEY> ~/$SUBJECT[1..n]
 ```
 And add the new var to this command :
 ```
@@ -59,7 +55,8 @@ sh script.sh |& less
 ```
 To get the same terminal's color as i do go into your terminal settings then profiles/color Color Presets at the bottom right and select Solarized dark
 
-## Documentation
+## DOCUMENTATION
 
 [Weather API](https://github.com/chubin/wttr.in)
+
 [News API](https://newsapi.org/docs)
