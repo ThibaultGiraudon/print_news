@@ -19,37 +19,14 @@ These informations are shown in a window which had to be close tapping 'q' key.
 This project use an API called NewsAPI, you need to generate a key on their [website](https://newsapi.org), it's fully free you just had to create an account.
 
 ## INSTALATION
-```
-bash -c "$(curl -fsSL https://raw.github.com/Thib1708/print_news/master/install.sh)"
-```
+
 Type the folowings commands lines in your ```$HOME``` directory:
 
 ```
-git clone https://github.com/Thib1708/print_news.git; cd print_news; make; cd ..
+bash -c "$(curl -fsSL https://raw.github.com/Thib1708/print_news/master/install.sh)"
 ```
+Then add your api key in ```~/zshrc``` between the quotes of export API_KEY="".
 
-Then copy/paste these commands in your ```~/.zshrc```
-```
-export SUBJECT="Apple"
-export COUNTRY="fr"
-export API_KEY="copy/paste the api key"
-export CITY="Lyon"
-
-curl -s fr.wttr.in/$CITY\?tpq > ~/todays_news
-
-curl https://newsapi.org/v2/everything -G \
-    -d q=$SUBJECT \
-    -d sortBy=popularity \
-    -d apiKey=$API_KEY> ~/$SUBJECT
-
-curl https://newsapi.org/v2/top-headlines -G \
-    -d country=$COUNTRY \
-	-d sortBy=popularity \
-    -d apiKey=$API_KEY > ~/$COUNTRY
-cd ~
-./print_news/print_news ~/$SUBJECT ~/$COUNTRY >> ~/todays_news
-cat ~/todays_news |& less
-```
 ## CUSTOMIZATION
 
 You can modifie the export's lines in .zshrc :
@@ -73,4 +50,10 @@ And add the new var to this command :
 ./print_news/print_news ~/$SUBJECT[1..n] ~/$COUNTRY >> ~/todays_news
 ```
 
-You can also modifie the colors in ~/print_news/include/print_news.h
+You can also modifie the colors in ~/print_news/include/print_news.h.
+
+A bash script is present to show you all the colors you terminal is addling. Type this command to use it:
+```
+sh script.sh |& less
+```
+To get the same terminal's color as i do go into your terminal settings then profiles/color
