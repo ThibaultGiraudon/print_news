@@ -22,8 +22,6 @@ rm -rf temp_____
 
 RC_FILE="$HOME/.zshrc"
 
-echo "try to add alias in file: $RC_FILE"
-
 # set up the alias
 if ! grep "SUBJECT=" "$RC_FILE" &> /dev/null; then
 	echo "cmds not present"
@@ -33,7 +31,7 @@ export API_KEY=\"\"\n
 export CITY=\"Lyon\"\n\n
 curl -s fr.wttr.in/\$CITY\\\?tpq > ~/todays_news\n\n
 curl https://newsapi.org/v2/everything -G -d q=\$SUBJECT -d sortBy=popularity -d apiKey=\$API_KEY> ~/print_news/articles/\$SUBJECT\n\n
-curl https://newsapi.org/v2/top-headlines -G -d country=\$COUNTRY -d sortBy=popularity -d apiKey=\$API_KEY > ~/print_news/articles/\$COUNTRY\n
+curl https://newsapi.org/v2/top-headlines -G -d country=\$COUNTRY -d apiKey=\$API_KEY > ~/print_news/articles/\$COUNTRY\n
 cd ~\n
 ./print_news/print_news ./print_news/articles/\$SUBJECT ./print_news/articles/\$COUNTRY >> ~/todays_news\n
 cat ~/todays_news |& less" "$HOME" >> "$RC_FILE"
