@@ -162,7 +162,7 @@ int	main(int argc, char **argv)
 		if (fd == -1)
 			return (perror(argv[i]), 0);
 		get_next_line(fd, &line);
-		if (ft_strnstr(line, "error", ft_strlen(line)))
+		if (ft_strnstr(line, "status: \"error\"", ft_strlen(line)))
 			return (printf("%s\n\n\n", line), 0);
 		len = ft_strlen(argv[i]);
 		while (len && argv[i][len] != '/')
