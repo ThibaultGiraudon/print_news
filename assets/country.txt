@@ -4,7 +4,7 @@ at -> AUSTRIA
 au -> AUSTRALIA
 be -> BELGIUM
 bg -> BULGARIA
-br -> FRANCE
+br -> BRAZIL
 ca -> CANADA
 ch -> SWITZERLAND
 cn -> CHINA
@@ -38,7 +38,7 @@ ph -> PHILIPINES
 pl -> POLAND
 pt -> PORTUGAL
 ro -> ROMANIA
-rs -> FRANCE
+rs -> SERBIA
 ru -> RUSSIAN-FEDERATION
 sa -> SAUDI-ARABIA
 se -> SWEDEN
