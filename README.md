@@ -56,4 +56,4 @@ A bash script is present to show you all the colors you terminal is addling. Typ
 ```
 sh script.sh |& less
 ```
-To get the same terminal's color as i do go into your terminal settings then profiles/color
+To get the same terminal's color as i do go into your terminal settings then profiles/color Color Presets at the bottom right and select Solarized dark
