@@ -64,16 +64,16 @@ echo "try to add alias in file: $RC_FILE"
 # set up the alias
 if ! grep "SUBJECT=" "$RC_FILE" &> /dev/null; then
 	echo "cmds not present"
-	printf "\nexport SUBJECT="Apple"\n\
-export COUNTRY="fr"\n\
-export API_KEY="8290029380e4428bb679cc65052bcfc4"\n\
-export CITY="Lyon"\n\n\
-curl -s fr.wttr.in/\$CITY\\?tpq > ~/todays_news\n\n\
-curl https://newsapi.org/v2/everything -G -d q=\$SUBJECT -d sortBy=popularity -d apiKey=\$API_KEY> ~/\$SUBJECT\n\n\
-curl https://newsapi.org/v2/top-headlines -G -d country=\$COUNTRY -d sortBy=popularity -d apiKey=\$API_KEY > ~/\$COUNTRY\n\
+	printf "\nexport SUBJECT="Apple"\n
+export COUNTRY="fr"\n
+export API_KEY=""\n
+export CITY="Lyon"\n\n
+curl -s fr.wttr.in/\$CITY\\\?tpq > ~/todays_news\n\n
+curl https://newsapi.org/v2/everything -G -d q=\$SUBJECT -d sortBy=popularity -d apiKey=\$API_KEY> ~/\$SUBJECT\n\n
+curl https://newsapi.org/v2/top-headlines -G -d country=\$COUNTRY -d sortBy=popularity -d apiKey=\$API_KEY > ~/\$COUNTRY\n
 cd ~\n
-./print_news/print_news ~/\$SUBJECT ~/\$COUNTRY >> ~/todays_news\n\
+./print_news/print_news ~/\$SUBJECT ~/\$COUNTRY >> ~/todays_news\n
 cat ~/todays_news |& less" "$HOME" >> "$RC_FILE"
-echo "\033[1;32mcmds add"
-echo "\033[48;5;5mnow open ~/.zshrc and copy/paste your api_key in export API_KEY="""
+printf "\033[1;32mcmds add"
+printf "\033[48;5;5mnow open ~/.zshrc and copy/paste your api_key in export API_KEY="""
 fi
