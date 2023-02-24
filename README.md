@@ -23,7 +23,7 @@ This project use an API called NewsAPI, you need to generate a key on their [web
 Type the folowings commands lines in your ```$HOME``` directory:
 
 ```
-bash -c "$(curl -fsSL https://raw.github.com/Thib1708/print_news/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.github.com/Thib1708/print_news/master/bin/install.sh)"
 ```
 Then add your api key in ```~/zshrc``` between the quotes of export API_KEY="".
 
@@ -40,11 +40,11 @@ You can modifie the export's lines in .zshrc :
 
 You can display articales about more than one subject by adding other export SUBJECT[1..n], add this command:
 ```
-curl https://newsapi.org/v2/everything -G -d q=$SUBJECT[1..n] -d sortBy=popularity -d apiKey=$API_KEY> ~/$SUBJECT[1..n]
+curl https://newsapi.org/v2/everything -G -d q=$SUBJECT[1..n] -d sortBy=popularity -d apiKey=$API_KEY> ~/print_news/artciles/$SUBJECT[1..n]
 ```
 And add the new var to this command :
 ```
-./print_news/print_news ~/$SUBJECT[1..n] ~/$COUNTRY >> ~/todays_news
+./print_news/print_news ~/print_news/artciles/$SUBJECT[1..n] ~/print_news/artciles/$COUNTRY >> ~/todays_news
 ```
 
 You can also modifie the colors in ~/print_news/include/print_news.h.
