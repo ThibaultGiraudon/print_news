@@ -21,7 +21,6 @@ cd "$HOME" || exit
 rm -rf temp_____
 if grep "zsh" "$SHELL"; then
 	RC_FILE="$HOME/.zshrc"
-fi
 else 
 	RC_FILE="$HOME/.bashrc"
 fi
