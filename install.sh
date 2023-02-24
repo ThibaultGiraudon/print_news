@@ -30,6 +30,10 @@ if [ "$(uname)" != "Darwin" ]; then
 	esac
 fi
 
+cd ./print_news
+make 
+cd ..
+
 cp -r print_news "$HOME"
 
 cd "$HOME" || exit
@@ -65,16 +69,10 @@ export COUNTRY="fr"\n\
 export API_KEY="8290029380e4428bb679cc65052bcfc4"\n\
 export CITY="Lyon"\n\n\
 curl -s fr.wttr.in/\$CITY\?tpq > ~/todays_news\n\n\
-curl https://newsapi.org/v2/everything -G \\ \n\
-\t-d q=\$SUBJECT \\ \n\
-\t-d sortBy=popularity \\ \n\
-\t-d apiKey=\$API_KEY> ~/\$SUBJECT\n\n\
-curl https://newsapi.org/v2/top-headlines -G \\\n\
-\t-d country=\$COUNTRY \\ \n\
-\t-d sortBy=popularity \\ \n\
-\t-d apiKey=\$API_KEY > ~/\$COUNTRY\n\
-cd ~\n\
-./print_news/print_news ~/$SUBJECT ~/$COUNTRY >> ~/todays_news\n\
+curl https://newsapi.org/v2/everything -G -d q=\$SUBJECT -d sortBy=popularity -d apiKey=\$API_KEY> ~/\$SUBJECT\n\n\
+curl https://newsapi.org/v2/top-headlines -G -d country=\$COUNTRY -d sortBy=popularity -d apiKey=\$API_KEY > ~/\$COUNTRY\n\
+cd ~\n
+./print_news/print_news ~/\$SUBJECT ~/\$COUNTRY >> ~/todays_news\n\
 cat ~/todays_news |& less" "$HOME" >> "$RC_FILE"
 fi
 
