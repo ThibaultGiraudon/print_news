@@ -1,10 +1,3 @@
-#!/bin/bash
-
-cd "$HOME" || exit
-
-mkdir temp_____
-
-cd temp_____ || exit
 rm -rf print_news
 
 # download github
@@ -38,3 +31,4 @@ cat ~/todays_news |& less" "$HOME" >> "$RC_FILE"
 printf "\033[1;32mcmds add\033[0m\n"
 printf "\033[48;5;5mopen ~/.zshrc and copy/paste your api_key in export API_KEY=\"\"\033[0m\n"
 fi
+
