@@ -6,7 +6,7 @@
 /*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:07:55 by tgiraudo          #+#    #+#             */
-/*   Updated: 2023/02/24 18:46:23 by thibaultgir      ###   ########.fr       */
+/*   Updated: 2023/02/25 21:53:19 by thibaultgir      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ int	main(int argc, char **argv)
 		if (fd == -1)
 			return (perror(argv[i]), 0);
 		get_next_line(fd, &tmp);
-		if (ft_strnstr(tmp, "status: \"error\"", ft_strlen(tmp)))
+		if (ft_strnstr(tmp, "\"status\":\"error\"", ft_strlen(tmp)))
 			return (printf("%s\n\n\n", tmp), 0);
 		len = ft_strlen(argv[i]);
 		while (len && argv[i][len] != '/')
