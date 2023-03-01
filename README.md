@@ -36,7 +36,7 @@ Remove the command added to your ```~/.zshrc```:
 ```
 export SUBJECT="Apple"
 export COUNTRY="fr"
-export API_KEY="8290029380e4428bb679cc65052bcfc4"
+export API_KEY=""
 export CITY="Lyon"
 curl -s fr.wttr.in/$CITY\?tpq > ~/todays_news
 curl https://newsapi.org/v2/everything -G -d q=$SUBJECT -d sortBy=popularity -d apiKey=$API_KEY> ~/print_news/articles/$SUBJECT
