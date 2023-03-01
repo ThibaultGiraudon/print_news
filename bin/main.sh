@@ -10,4 +10,5 @@ cd ~
 
 ./print_news/print_news ./print_news/articles/$SUBJECT ./print_news/articles/$COUNTRY >> ~/todays_news
 
-cat ~/todays_news 2>&1 | less
+clear
+cat ~/todays_news
